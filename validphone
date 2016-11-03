@@ -1,0 +1,33 @@
+#!/bin/sh
+# validalAlphaNum - Ensures that input only consists of alphabetical
+#              and numeric characters.
+
+validPhoneNum()
+{
+  # validate arg: returns 0 if all upper+lower+digits, 1 otherwise
+
+  # Remove all unacceptable chars
+  compressed="$(echo $1 | sed -e 's/[^[:digit:] \(\)-]//g')"
+  # sed -e   the -e option is for script which is in ''
+  #compressed="$(echo $1 | sed 's/[^[:digt:]\)\(- ]//g')"
+
+  if [ "$compressed" != "$input" ] ; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+# Sample usage of this function in a script
+
+echo -n "Enter input: "
+read input
+
+if ! validPhoneNum "$input" ; then
+  echo "Your input phone number must consist of only digits, spaces,- ,( and ) ." >&2
+  exit 1
+else
+  echo "Input is a valid phone number."
+fi
+
+exit 0
