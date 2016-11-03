@@ -1,0 +1,17 @@
+#!/bin/bash
+
+STRING=''
+j=0
+while [ $j -lt 1000 ]; do
+	SPACE=' '
+        STRING=$STRING$j$SPACE
+        j=$((j+1))
+done
+
+i=0
+while [ $i -lt 1000000 ]; do
+	echo $STRING >> fakeinput.txt
+	i=$((i+1))
+done
+
+	 
