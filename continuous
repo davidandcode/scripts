@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+STRING=''
+SPACE=' '
+i=0
+while [ $i -lt 1000 ];do
+        STRING=$STRING'a'$SPACE
+        i=$((i+1))
+done
+
+while [ true ];do
+        sleep 2
+        j=0
+        while [ $j -lt 1000 ];do
+                echo $STRING
+                j=$((j+1))
+        done
+        echo "--------------------------------------------------------------------------------------------------------------------------"
+done
